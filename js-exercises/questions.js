@@ -28,6 +28,28 @@
  */
 function filterNegativeNumbers(numbers) {
   // Your implementation here
+
+  // Method 1: using for loop
+  // Initialise new array
+  let new_numbers = [];
+
+  // For loop
+  for (const num of numbers)
+  {
+    if (num >= 0)
+    {
+      new_numbers.push(num);
+    }
+
+  }
+
+  // Or this way
+  // Method 2: using filter method
+  // Create new_numbers_2 array by filtering the numbers array for numbers which are not negative
+  const new_numbers_2 = numbers.filter((num) => num >= 0);
+
+  return new_numbers;
+
 }
 
 /**
@@ -47,6 +69,25 @@ function filterNegativeNumbers(numbers) {
  */
 function doubleDivisibleByThree(numbers) {
   // Your implementation here
+
+  // Method 1: using filter and map methods
+  // Create new_numbers array by filtering the numbers array for numbers which are divisible by 3, 
+  // double the number before putting it in the new array
+  const new_numbers = numbers
+                      .filter(num => num % 3 === 0)  // keep only the numbers divisible by 3
+                      .map(num => num * 2);  // double the number
+
+  // Method 2: using reduce method
+  const new_numbers_reduce = numbers.reduce((acc, num) => {
+    if (num % 3 === 0){
+      acc.push(num * 2);
+    }
+    return acc;
+  }, []);
+
+
+  return new_numbers;
+
 }
 
 /**
@@ -76,6 +117,29 @@ function doubleDivisibleByThree(numbers) {
  */
 function selectHighPerformingStudents(students) {
   // Your implementation here
+
+  // Method 1: using filter, map and sort methods
+  // Use filter and map methods to filter the student list
+  const filtered_students = students
+                            .filter(stud => stud.GPA >= 5 && stud.hobbies.includes('coding'))
+                            .map(stud => ({ name: stud.name, email : stud.email }));
+
+  // Sort List
+  const sorted_students = filtered_students.sort((a,b) => a.name.localeCompare(b.name));
+
+  // Method 2: using reduce method
+  const reduced_students = students.reduce((acc, stud) => {
+    if (stud.GPA >= 5 && stud.hobbies.includes('coding')) {
+      acc.push({ name: stud.name, email: stud.email });
+    }
+    return acc;
+  }, []);
+
+  const sorted_students_reduce = reduced_students.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Return sorted list
+  return sorted_students;
+
 }
 
 /**
@@ -104,6 +168,42 @@ function selectHighPerformingStudents(students) {
  */
 function aggregateStudentData(students) {
   // Your implementation here
+  // Use reduce to accumulate all needed stats
+  const result = students.reduce((acc, stud) => {
+    // Count every student
+    acc.studentNum += 1;
+
+    // Add to total GPA;
+    acc.totalGPA += stud.GPA;
+
+    // Check if student has 'coding' as a hobby
+    if (stud.hobbies.includes('coding')) {
+      acc.codingStudentNum += 1;
+      acc.codingStudentTotalGPA += stud.GPA;
+    }
+
+    return acc;
+
+  }, {
+    studentNum: 0,
+    totalGPA: 0,
+    codingStudentNum: 0,
+    codingStudentTotalGPA: 0
+  });
+
+  // Compute averages (rounded to 2 decimals)
+  const studentAvgGPA = (result.totalGPA / result.studentNum).toFixed(2);
+
+  const codingStudentGPA = result.codingStudentNum > 0 ? (result.codingStudentGPA / result.codingStudentNum).toFixed(2) : "0.00";
+
+  // Return final object in required format
+  return {
+    studentNum: result.studentNum,
+    studentAvgGPA: Number(studentAvgGPA),
+    codingStudentNum: result.codingStudentNum,
+    codingStudentGPA: Number(codingStudentGPA)
+  };
+
 }
 
 /**
@@ -127,6 +227,46 @@ function aggregateStudentData(students) {
  */
 function swapForm(input) {
   // Your implementation here
+
+  // Check if the input includes spaces
+  if (input.includes(" "))
+  {
+    const words = input.split(" ");
+
+    const camel = words
+      .map((word, index) => {
+        if (index === 0) return word; // first word stays lowercase
+
+        // Capitalise first letter of each subsequent word
+        const firstLetter = word.charAt(0).toUpperCase();
+        const rest = word.slice(1);
+        return firstLetter + rest;
+      })
+      .join("");
+
+    return camel;
+
+  }
+  // Else the input doesn't include spaces
+  else 
+  {
+    // Case 2: camelCase → sentence
+    let sentence = "";
+
+    for (let i = 0; i < input.length; i++) {
+      const char = input[i];
+
+      // If uppercase, insert a space before it
+      if (char >= "A" && char <= "Z") {
+        sentence += " " + char.toLowerCase();
+      } else {
+        sentence += char;
+      }
+    }
+
+    return sentence;
+
+  }
 }
 
 // Export the function for testing with Jest
