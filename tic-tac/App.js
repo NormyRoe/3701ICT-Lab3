@@ -1,37 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Board from './src/components/Board';
+{/* Import libraries/Functions */}
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+{/* Import screens from src folder */}
+import Home from "./src/screens/Home";
+import Rules from "./src/screens/Rules";
+import Credits from "./src/screens/Credits";
 
+{/* Create Stack constant variable for navigator */}
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tic Tac Toe App!</Text>
-      <StatusBar style="auto" />
-      {/* Outer Board */}
-      <Board />
-      {/* End Outer Board */}
-    </View>
+  return (    
+    <NavigationContainer>
+      {/* Create a stack of screens within a navigation container */}
+      {/* Setting headerShown to false allows 'Home' to become the direct child of the navigator 
+      and allows the navigation prop to not get lost or overridden */}
+      <Stack.Navigator screenOptions={{ headerShown: false}}>
+        <Stack.Screen name = "Home" component = {Home} />
+        <Stack.Screen name = "Rules" component = {Rules} />
+        <Stack.Screen name = "Credits" component = {Credits} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 
 
-
-
-{/* Style Sheets */}
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
-  },  
-});

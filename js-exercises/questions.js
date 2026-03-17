@@ -194,7 +194,7 @@ function aggregateStudentData(students) {
   // Compute averages (rounded to 2 decimals)
   const studentAvgGPA = (result.totalGPA / result.studentNum).toFixed(2);
 
-  const codingStudentGPA = result.codingStudentNum > 0 ? (result.codingStudentGPA / result.codingStudentNum).toFixed(2) : "0.00";
+  const codingStudentGPA = result.codingStudentNum > 0 ? (result.codingStudentTotalGPA / result.codingStudentNum).toFixed(2) : "0.00";
 
   // Return final object in required format
   return {
