@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 {/* Import components from src folder */}
 import Title from '../components/Title';
+import TButton from '../components/TButton';
 
 
 
@@ -76,12 +77,12 @@ export default function Home( {navigation}) {
       <View style = {styles.buttonRow}>
         {/* Rules Button */}
         <View>
-            <Button title = "Rules" onPress={() => navigation.navigate("Rules")} />
+            <TButton text = "Rules" onPress={() => navigation.navigate("Rules")} />
         </View>
         {/* End Rules Button */}
         {/* Credits Button */}
         <View>
-            <Button title = "Credits" onPress={() => navigation.navigate("Credits")} />
+            <TButton text = "Credits" onPress={() => navigation.navigate("Credits")} />
         </View>
         {/* End Credits Button */}
       </View>
@@ -133,10 +134,10 @@ const styles = StyleSheet.create({
     color: "white",
   },
   buttonRow: {
-  flexDirection: "row",
-  marginTop: 20,
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: 20,              // modern RN supports gap!
-},
+    flexDirection: "row",
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,              // modern RN supports gap!
+  },
 });

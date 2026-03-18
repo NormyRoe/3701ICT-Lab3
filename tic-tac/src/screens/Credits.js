@@ -3,29 +3,30 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 {/* Import components from src folder */}
 import Title from '../components/Title';
+import TButton from '../components/TButton';
 
 
 export default function Credits( {navigation}) {
   return (
     <View style={styles.container}>
       {/* Top Section */}
-              <View style={styles.top_section}>
-                  <Title text = "Credits" />
-              </View>
-              {/* End Top Section */}
-              {/* Middle Section */}
-              <View style={styles.middle_section}>
-                  <Text style={styles.credits_text}>
-                  {/* Placeholder text for now */}
-                  These are the credits for the game...
-                  </Text>
-              </View>
-              {/* End Middle Section */}
-              {/* Bottom Section */}
-              <View style={styles.bottom_section}>
-                  <Button title="Back" onPress={() => navigation.navigate("Home")} />
-              </View>
-              {/* End Bottom Section */}      
+      <View style={styles.top_section}>
+        <Title text = "Credits" />
+      </View>
+      {/* End Top Section */}
+      {/* Middle Section */}
+      <View style={styles.middle_section}>
+        <Text style={styles.credits_text}>
+        {/* Placeholder text for now */}
+        These are the credits for the game...
+        </Text>
+      </View>
+      {/* End Middle Section */}
+      {/* Bottom Section */}
+      <View style={styles.bottom_section}>
+          <TButton text="Back" onPress={() => navigation.navigate("Home")} />
+      </View>
+      {/* End Bottom Section */}      
     </View>
   );
 }

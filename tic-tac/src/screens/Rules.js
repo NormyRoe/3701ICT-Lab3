@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 {/* Import components from src folder */}
 import Title from '../components/Title';
+import TButton from '../components/TButton';
 
 
 export default function Rules( {navigation}) {
@@ -23,7 +24,7 @@ export default function Rules( {navigation}) {
         {/* End Middle Section */}
         {/* Bottom Section */}
         <View style={styles.bottom_section}>
-            <Button title="Back" onPress={() => navigation.navigate("Home")} />
+            <TButton text="Back" onPress={() => navigation.navigate("Home")} />
         </View>
         {/* End Bottom Section */}
     </View>

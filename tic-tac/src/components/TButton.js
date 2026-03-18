@@ -1,16 +1,22 @@
 {/* Import libraries/Functions */}
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 
 
 
 
-export default function TButton() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>TButton</Text>
-      
-    </View>
+export default function TButton( {text, onPress}) {
+  return (    
+    /* Adding a pressable button */
+    <Pressable 
+      style={styles.button}
+      onPress = {onPress}
+      >
+        <Text style={styles.button_text}>
+          {text}
+        </Text>      
+    </Pressable>
+    /* End Adding a pressable button */
   );
 }
 
@@ -20,15 +26,18 @@ export default function TButton() {
 
 {/* Style Sheets */}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  button: {
+    backgroundColor: "blue",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    minWidth: 120,
   },
-  title: {
-    marginBottom: 20,
-    fontSize: 20,
+  button_text: {
+    color: "white",
+    fontSize: 18,
     fontWeight: "bold",
-    color: "black",
   },
 });
