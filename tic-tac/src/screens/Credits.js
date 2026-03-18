@@ -1,8 +1,8 @@
 {/* Import libraries/Functions */}
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-
+{/* Import components from src folder */}
+import Title from '../components/Title';
 
 
 export default function Credits( {navigation}) {
@@ -10,7 +10,7 @@ export default function Credits( {navigation}) {
     <View style={styles.container}>
       {/* Top Section */}
               <View style={styles.top_section}>
-                  <Text style={styles.title}>Credits</Text>
+                  <Title text = "Credits" />
               </View>
               {/* End Top Section */}
               {/* Middle Section */}
@@ -54,10 +54,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
   },
   credits_text: {
     fontSize: 16,

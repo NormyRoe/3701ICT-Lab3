@@ -2,13 +2,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+{/* Import components from src folder */}
+import Title from '../components/Title';
 
 
 
 export default function Home( {navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tic Tac Toe App!</Text>
+      {/* Title Section */}
+      <View style={ {width: "100%", paddingHorizontal: 20} }>
+        <Title text = "Tic Tac Toe App!" />
+      </View>
+      {/* End Title Section */}
       <StatusBar style="auto" />
       {/* Outer Board */}
       <View style={styles.outer_board}>
@@ -94,12 +100,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
   },
   outer_board: {
     width: 300,

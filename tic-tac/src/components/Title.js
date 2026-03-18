@@ -1,15 +1,17 @@
 {/* Import libraries/Functions */}
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 
 
 
-export default function Title() {
+export default function Title( {text}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Title</Text>
-      
+      {/* Display Title Text */}
+      <Text style={styles.title_text}>
+        {text}
+      </Text>
+      {/* End Display Title Text */}
     </View>
   );
 }
@@ -21,14 +23,16 @@ export default function Title() {
 {/* Style Sheets */}
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
+    backgroundColor: "green",
+    padding: 10,
+    borderRadius: 10,
+    width: "100%",
+    alignItems: "center",
     marginBottom: 20,
-    fontSize: 20,
+  },
+  title_text: {
+    color: "white",
+    fontSize: 24,
     fontWeight: "bold",
-    color: "black",
   },
 });
