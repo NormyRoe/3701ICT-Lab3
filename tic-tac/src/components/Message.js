@@ -1,15 +1,23 @@
 {/* Import libraries/Functions */}
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+
+
+{/* Import components from src folder */}
+import colors from '../constants/colors';
 
 
 
-
-export default function Message() {
+export default function Message( {text}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Message</Text>
-      
+      {/* Add Scrollable View */}
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.message_text}>{text}</Text>
+      </ScrollView>
+      {/* End Scrollable View */}    
     </View>
   );
 }
@@ -22,13 +30,19 @@ export default function Message() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "100%",
+    backgroundColor: colors.messageBackground,
+    borderRadius: 10,
+    padding: 15,
+    marginVertical: 10,
   },
-  title: {
-    marginBottom: 20,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
+  scrollContent: {
+    paddingBottom: 20,
+  },
+  message_text: {
+    color: colors.textLight,
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: 'left'  // more natural for long paragraphs
   },
 });

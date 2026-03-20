@@ -3,6 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
 
+{/* Import components from src folder */}
+import colors from '../constants/colors';
+
 
 
 export default function TButton( {text, onPress}) {
@@ -27,7 +30,7 @@ export default function TButton( {text, onPress}) {
 {/* Style Sheets */}
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "blue",
+    backgroundColor: colors.buttonBackground,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     minWidth: 120,
   },
   button_text: {
-    color: "white",
+    color: colors.textLight,
     fontSize: 18,
     fontWeight: "bold",
   },

@@ -2,6 +2,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 
+{/* Import components from src folder */}
+import colors from '../constants/colors';
+
 
 
 export default function Title( {text}) {
@@ -23,7 +26,7 @@ export default function Title( {text}) {
 {/* Style Sheets */}
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "green",
+    backgroundColor: colors.titleBackground,
     padding: 10,
     borderRadius: 10,
     width: "100%",
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title_text: {
-    color: "white",
+    color: colors.textLight,
     fontSize: 24,
     fontWeight: "bold",
   },
